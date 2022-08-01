@@ -1,4 +1,4 @@
-package com.udacity.shoestore.fragments
+package com.udacity.shoestore.screens.login
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -16,9 +16,12 @@ import com.udacity.shoestore.databinding.FragmentLogingBinding
 
 class LogingFragment : Fragment() {
 
+    private lateinit var binding: FragmentLogingBinding
+
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val binding = DataBindingUtil.inflate<FragmentLogingBinding>( inflater, R.layout.fragment_loging, container, false)
+        binding = DataBindingUtil.inflate( inflater, R.layout.fragment_loging, container, false)
 
         return binding.root
     }
