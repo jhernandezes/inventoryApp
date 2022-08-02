@@ -5,6 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".screens.login.LogingFragment">
 
+    <data>
+
+        <variable
+            name="logingViewModel"
+            type="com.udacity.shoestore.screens.login.LogingViewModel" />
+    </data>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/frameLayout"
@@ -23,7 +29,9 @@
                 app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.477"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@{String.valueOf(logingViewModel.user_name)}"
+                />
 
             <EditText
                 android:id="@+id/editTextTextPassword"
@@ -34,7 +42,7 @@
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:minHeight="48dp"
-                app:layout_constraintBottom_toTopOf="@+id/button2"
+                app:layout_constraintBottom_toTopOf="@+id/button_login"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.477"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -44,7 +52,7 @@
                 style="@style/FontText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/paddingtext"
+                android:paddingLeft="15sp"
                 android:paddingRight="@dimen/paddingtext"
                 android:text="@string/welcome_text"
                 app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
@@ -54,28 +62,29 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/button_login"
                 style="@style/mybuttonstyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="60dp"
+                android:layout_marginBottom="28dp"
                 android:text="@string/Button_Login"
                 app:layout_constraintBottom_toTopOf="@+id/textView2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/button_register"
                 style="@style/mybuttonstyle"
                 android:layout_width="202dp"
                 android:layout_height="49dp"
-                android:layout_marginBottom="60dp"
+                android:layout_marginBottom="28dp"
                 android:text="@string/NewAccount"
                 android:textStyle="normal"
-                app:layout_constraintBottom_toTopOf="@+id/button"
+                app:layout_constraintBottom_toTopOf="@+id/button_login"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintHorizontal_bias="0.459"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
@@ -94,9 +103,10 @@
                 style="@style/FontText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="68dp"
+                android:layout_marginTop="32dp"
                 android:text="@string/welcome"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.493"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

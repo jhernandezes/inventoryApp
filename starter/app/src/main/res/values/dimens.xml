@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="paddingtext">3sp</dimen>
+    <dimen name="leftright_margin">4</dimen>
+    <dimen name="leftpadding">12sp</dimen>
 </resources>

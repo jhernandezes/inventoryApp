@@ -2,8 +2,9 @@
     <string name="app_name">ShoeStore</string>
     <string name="NewAccount">Register with new account</string>
     <string name="Button_Login">Login</string>
-    <string name="login_options">Select between the next options</string>
+    <string name="login_options">Select between the above options</string>
     <string name="welcome_text">Please log in with your account or create a new one.</string>
     <string name="welcome">Welcome!</string>
     <string name="contentMain">Main app</string>
+    <string name="welcome_message">Thank\'s for login, please click on the button to continue!!</string>
 </resources>
