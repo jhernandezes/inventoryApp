@@ -23,6 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="28dp"
                 android:ems="10"
+                android:afterTextChanged="@{(editable) -> logingViewModel.setUserName(editable)}"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:minHeight="48dp"
@@ -30,7 +31,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.477"
                 app:layout_constraintStart_toStartOf="parent"
-                android:text="@{String.valueOf(logingViewModel.user_name)}"
+
                 />
 
             <EditText
@@ -40,6 +41,7 @@
                 android:layout_marginBottom="84dp"
                 android:ems="10"
                 android:hint="Password"
+                android:afterTextChanged="@{(editable) -> logingViewModel.setPassword(editable)}"
                 android:inputType="textPassword"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toTopOf="@+id/button_login"

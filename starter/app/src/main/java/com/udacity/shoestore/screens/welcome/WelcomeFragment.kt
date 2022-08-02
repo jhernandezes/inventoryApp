@@ -5,21 +5,32 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingComponent
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentWelcomeBinding
+import com.udacity.shoestore.screens.login.LogingViewModel
 
 
 class WelcomeFragment : Fragment() {
 
     private lateinit var binding : FragmentWelcomeBinding
+    private val fragmentLogingViewModel: LogingViewModel by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
+
         binding = DataBindingUtil.inflate( inflater, R.layout.fragment_welcome, container, false)
-        return inflater.inflate(R.layout.fragment_welcome, container, false)
+        ViewModelProvider(this).get(LogingViewModel::class.java)
+        binding.setLifecycleOwner(this)
+
+        fragmentLogingViewModel.user_name.observe(viewLifecycleOwner, Observer { newName ->
+            binding.welcomeFragmentUsername.text = newName
+        })
+
+        return binding.root
     }
 
 

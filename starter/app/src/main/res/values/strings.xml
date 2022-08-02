@@ -7,4 +7,5 @@
     <string name="welcome">Welcome!</string>
     <string name="contentMain">Main app</string>
     <string name="welcome_message">Thank\'s for login, please click on the button to continue!!</string>
+    <string name="welcome_button_text">Continue</string>
 </resources>

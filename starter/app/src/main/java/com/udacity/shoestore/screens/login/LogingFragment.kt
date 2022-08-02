@@ -1,15 +1,19 @@
 package com.udacity.shoestore.screens.login
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModel
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.navArgs
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentLogingBinding
 
@@ -21,18 +25,33 @@ import com.udacity.shoestore.databinding.FragmentLogingBinding
 class LogingFragment : Fragment() {
 
     private lateinit var binding: FragmentLogingBinding
-    private lateinit var viewModel: LogingViewModel
+    private  val viewModel: LogingViewModel by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate( inflater, R.layout.fragment_loging, container, false)
-        viewModel = ViewModelProvider(this).get(LogingViewModel::class.java)
+
+        ViewModelProvider(this).get(LogingViewModel::class.java)
         binding.logingViewModel = viewModel
         binding.lifecycleOwner = this
 
+
         binding.buttonLogin.setOnClickListener{v : View ->
-            val action = LogingFragmentDirections.actionLoginFragmentToWelcomeFragment()
-            NavHostFragment.findNavController(this).navigate(action)
+            if (!viewModel.user_name.value.isNullOrEmpty()) {
+                val action = LogingFragmentDirections.actionLoginFragmentToWelcomeFragment()
+                NavHostFragment.findNavController(this).navigate(action)
+            }else{
+                Toast.makeText(context, "Before proceeding you must fill in the password and email fields.", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        binding.buttonRegister.setOnClickListener{v : View ->
+            if (!viewModel.user_name.value.isNullOrEmpty() && !viewModel.password.value.isNullOrEmpty() ) {
+                val action = LogingFragmentDirections.actionLoginFragmentToWelcomeFragment()
+                NavHostFragment.findNavController(this).navigate(action)
+            }else{
+                Toast.makeText(context, "Before proceeding you must fill in the password and email fields.", Toast.LENGTH_SHORT).show()
+            }
         }
 
         return binding.root
@@ -40,3 +59,5 @@ class LogingFragment : Fragment() {
 
 
 }
+
+
