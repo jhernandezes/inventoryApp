@@ -8,4 +8,16 @@
     <string name="contentMain">Main app</string>
     <string name="welcome_message">Thank\'s for login, please click on the button to continue!!</string>
     <string name="welcome_button_text">Continue</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="message1">In the next screen you will find the list of shoes available in our store, to view them click on the continue button.</string>
+    <string name="message2">You can also register a new shoe model if you don\'t find what you are looking for!</string>
+    <string name="button_info">Continue</string>
+    <string name="titleShoeDetail">Create your new shoe model!</string>
+    <string name="Button_confirm">Save Shoe</string>
+    <string name="ButtonCancel">Cancel</string>
+    <string name="ShoeCompany">Shoe Company</string>
+    <string name="ShoeSize">Shoe size</string>
+    <string name="ShoeDescription">Shoe description</string>
+    <string name="ShoeName">Shoe name</string>
 </resources>

@@ -3,4 +3,5 @@
     <dimen name="paddingtext">3sp</dimen>
     <dimen name="leftright_margin">4</dimen>
     <dimen name="leftpadding">12sp</dimen>
+    <dimen name="leftmargin">8</dimen>
 </resources>

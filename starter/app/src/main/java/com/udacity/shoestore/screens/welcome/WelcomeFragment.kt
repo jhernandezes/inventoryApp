@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentWelcomeBinding
 import com.udacity.shoestore.screens.login.LogingViewModel
@@ -30,6 +31,10 @@ class WelcomeFragment : Fragment() {
             binding.welcomeFragmentUsername.text = newName
         })
 
+        binding.welcomeFragmentSubmit.setOnClickListener{v : View ->
+                val action = WelcomeFragmentDirections.actionWelcomeFragmentToInstructionFragment()
+                NavHostFragment.findNavController(this).navigate(action)
+        }
         return binding.root
     }
 
