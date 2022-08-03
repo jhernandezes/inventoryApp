@@ -37,7 +37,7 @@ class LogingFragment : Fragment() {
 
 
         binding.buttonLogin.setOnClickListener{v : View ->
-            if (!viewModel.user_name.value.isNullOrEmpty()) {
+            if (!viewModel.user_name.value.isNullOrEmpty() && !viewModel.password.value.isNullOrEmpty()) {
                 val action = LogingFragmentDirections.actionLoginFragmentToWelcomeFragment()
                 NavHostFragment.findNavController(this).navigate(action)
             }else{
