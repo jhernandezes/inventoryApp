@@ -12,6 +12,8 @@
             type="com.udacity.shoestore.screens.login.LogingViewModel" />
     </data>
 
+    <!-- Using Constraint Layout so the view would adapt in size, based on screen size and orientation-->
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/frameLayout"
             android:layout_width="match_parent"

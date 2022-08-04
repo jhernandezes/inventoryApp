@@ -11,15 +11,15 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
-import com.udacity.shoestore.databinding.FragmentWelcomeBinding
-import com.udacity.shoestore.screens.login.LogingViewModel
+import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.screens.shoeList.ShoeViewModel
-import com.udacity.shoestore.screens.welcome.WelcomeFragmentDirections
 
 
 class ShoeDetailFragment : Fragment() {
 
     private lateinit var binding : FragmentShoeDetailBinding
+    private var myShoe : Shoe = Shoe("", "" , "", "")
+
     private val shoeViewModel: ShoeViewModel by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,16 +28,16 @@ class ShoeDetailFragment : Fragment() {
         binding = DataBindingUtil.inflate( inflater, R.layout.fragment_shoe_detail, container, false)
         ViewModelProvider(this).get(ShoeViewModel::class.java)
         binding.setLifecycleOwner(this)
+        binding.shoe = myShoe
 
         //Out of the setOnClickListener because both onClick statement use the same action
         val action = ShoeDetailFragmentDirections.actionDetailFragmentToListFragment()
 
         binding.buttonsave.setOnClickListener{v : View ->
+
             // Genarate the new shoe model
-            shoeViewModel.addShoeModel(binding.nameshoe.text.toString(), binding.sizeshoe.text.toString().toDouble(), binding.companyshoe.text.toString(), binding.descriptionshoe.text.toString())
-            shoeViewModel.shoe_list
-            // Set the list
-            shoeViewModel.setShoeList()
+            shoeViewModel.addShoeModel(myShoe)
+
             //Navigate to the shoe list again
             NavHostFragment.findNavController(this).navigate(action)
         }

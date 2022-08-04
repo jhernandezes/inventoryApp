@@ -1,13 +1,14 @@
 package com.udacity.shoestore.screens.shoeList
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import com.udacity.shoestore.R
@@ -33,7 +34,27 @@ class ShoeListFragment : Fragment() {
         ViewModelProvider(this).get(ShoeViewModel::class.java)
         binding.setLifecycleOwner(this)
 
-        // Observe the list changes so the show list is always update
+        // Set options menu
+        val menuHost: MenuHost = requireActivity()
+
+        menuHost.addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.overflow_menu, menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                return when (menuItem.itemId) {
+                    R.id.Logout_item -> {
+                        NavHostFragment.findNavController(requireParentFragment()).navigate(ShoeListFragmentDirections.actionListFragmentToLoginFragment())
+                        true
+                    }
+                    else -> false
+                }
+            }
+        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
+
+
+        // Observe the list changes
         shoeViewModel.shoe_list.observe(viewLifecycleOwner) { list ->
             var myAdapter = MyAdapter(requireActivity(), list)
             binding.listView.adapter = myAdapter
@@ -43,12 +64,8 @@ class ShoeListFragment : Fragment() {
             NavHostFragment.findNavController(this).navigate(ShoeListFragmentDirections.actionListFragmentToDetailFragment())
         }
 
-        binding.logoutButton.setOnClickListener { v: View ->
-            NavHostFragment.findNavController(this).navigate(ShoeListFragmentDirections.actionListFragmentToLoginFragment())
-        }
         return binding.root
     }
-
 
     }
 

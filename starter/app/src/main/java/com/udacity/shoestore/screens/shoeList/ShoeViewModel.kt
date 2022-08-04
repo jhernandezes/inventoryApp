@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.udacity.shoestore.models.Shoe
 
 class ShoeViewModel : ViewModel() {
+
     private var list_shoe = ArrayList<Shoe>()
 
 
@@ -14,14 +15,10 @@ class ShoeViewModel : ViewModel() {
         get() = _shoe_list
 
 
-    fun addShoeModel(shoeName: String, shoeSize : Double, shoeCompany: String, shoeDescription: String){
-        val shoeModel = Shoe(shoeName, shoeSize, shoeCompany, shoeDescription)
+    fun addShoeModel(shoeModel : Shoe){
         list_shoe.add(shoeModel)
-    }
-
-
-    fun setShoeList(){
         _shoe_list.value = list_shoe
+
     }
 
 }

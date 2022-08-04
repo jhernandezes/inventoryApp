@@ -9,7 +9,12 @@
         <variable
             name="shoeViewModel"
             type="com.udacity.shoestore.screens.shoeList.ShoeViewModel" />
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
     </data>
+
+    <!-- Using Constraint Layout so the view would adapt in size based on screen size and orientation-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/frameLayout"
@@ -20,6 +25,7 @@
         <TextView
             android:id="@+id/titleShoeDetail"
             style="@style/FontText"
+            android.text = "@ = {}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -34,6 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="44dp"
+            android:text="@={shoe.name}"
             android:ems="10"
             android:hint="Shoe name"
             android:inputType="text"
@@ -47,6 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:text="@={shoe.company}"
             android:ems="10"
             android:hint="@string/ShoeCompany"
             android:inputType="text"
@@ -59,6 +67,7 @@
             android:id="@+id/sizeshoe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@={shoe.size}"
             android:layout_marginTop="24dp"
             android:ems="10"
             android:hint="@string/ShoeSize"
@@ -73,6 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:text="@={shoe.description}"
             android:ems="10"
             android:hint="@string/ShoeDescription"
             android:inputType="text"

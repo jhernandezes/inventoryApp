@@ -10,6 +10,7 @@
             type="com.udacity.shoestore.screens.shoeList.ShoeViewModel" />
     </data>
 
+    <!-- Using Constraint Layout so the view would adapt in size based on screen size and orientation-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -27,6 +28,7 @@
             android:scrollbars="vertical"
             tools:layout_editor_absoluteX="1dp">
 
+            <!-- Using LinearLayout because we wan a strictly vertical list-style arrangement-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -47,30 +49,15 @@
             android:id="@+id/addShoeButton"
             android:layout_width="55dp"
             android:layout_height="66dp"
-            android:layout_marginStart="52dp"
-            android:layout_marginBottom="48dp"
+            android:layout_marginStart="176dp"
+            android:layout_marginBottom="44dp"
             android:clickable="true"
             android:contentDescription="@string/Button_confirm"
             android:src="@drawable/ic_add"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/logoutButton"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/logoutButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="288dp"
-            android:layout_marginTop="36dp"
-            android:clickable="true"
-            android:contentDescription="@string/ButtonCancel"
-            android:src="@android:drawable/ic_lock_power_off"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/scrollView2"
-            app:layout_constraintVertical_bias="0.244"
-            app:rippleColor="#E3D3D3" />
+            app:layout_constraintVertical_bias="0.933" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

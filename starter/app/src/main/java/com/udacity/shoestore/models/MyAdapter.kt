@@ -32,7 +32,7 @@ class MyAdapter(private val context: Context, private val arrayList: java.util.A
         shoeDescription = convertView.findViewById(R.id.shoeDescription)
         shoeName.text = " " + arrayList[position].name
         shoeCompany.text = arrayList[position].company
-        shoeSize.text = arrayList[position].size.toString()
+        shoeSize.text = arrayList[position].size
         shoeDescription.text = arrayList[position].description
         return convertView
     }
